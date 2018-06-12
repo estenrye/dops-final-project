@@ -1,5 +1,5 @@
 properties([pipelineTriggers([githubPush()])])
-node('linux') {
+node() {
     stage('Build Image') {
         git 'https://github.com/estenrye/dops-final-project.git'
         sh 'docker image build -t training/dops-final-project:latest .'
