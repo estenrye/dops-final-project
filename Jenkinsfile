@@ -8,7 +8,7 @@ node() {
         sh 'docker image build -t dops-final-project-unittests:latest -f Dockerfile.unittests .'
     }
     stage('Run Tests') {
-        sh 'docker container run --rm -it dops-final-project-unittests:latest'
+        sh 'docker container run --rm dops-final-project-unittests:latest'
     }
     stage('Push Image to Dev Repository') {
         withCredentials([[$class: 'usernamePassword', usernameVariable: 'USER', credentialsId: 'jenkinsDTRUser', passwordVariable: 'PASS']]) {
